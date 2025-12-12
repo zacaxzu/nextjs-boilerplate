@@ -1,11 +1,10 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-  const photos = [
-    "/images/photo1.jpg",
-    "/images/photo2.jpg",
-    "/images/photo3.jpg",
-    "/images/photo4.jpg"
+  const categories = [
+    { name: "Events", image: "/images/photo1.jpg", link: "/gallery/events" },
+    { name: "Workshops", image: "/images/photo2.jpg", link: "/workshops" },
+    { name: "Portraits", image: "/images/photo3.jpg", link: "/portraits" },
   ];
 
   return (
@@ -15,27 +14,36 @@ export default function Home() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: "1rem"
+          gap: "1rem",
         }}
       >
-        {photos.map((src, index) => (
-          <div key={index} style={{ overflow: "hidden", borderRadius: "8px" }}>
-            <img
-              src={src}
-              alt={`Photo ${index + 1}`}
+        {categories.map((category, index) => (
+          <Link key={index} href={category.link}>
+            <div
               style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                transition: "transform 0.3s",
+                overflow: "hidden",
+                borderRadius: "8px",
+                cursor: "pointer",
+                textAlign: "center",
+                textDecoration: "none",
+                color: "inherit",
               }}
-              //onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-              //onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-            />
-          </div>
+            >
+              <img
+                src={category.image}
+                alt={category.name}
+                style={{
+                  width: "100%",
+                  height: "200px",
+                  objectFit: "cover",
+                  transition: "transform 0.3s",
+                }}
+              />
+              <h2 style={{ marginTop: "0.5rem" }}>{category.name}</h2>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
   );
 }
-
