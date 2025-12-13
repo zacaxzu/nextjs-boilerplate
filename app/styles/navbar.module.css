@@ -2,11 +2,11 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgb(150, 150, 150);
+    background: white;
     padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid #eee;
 }
 
@@ -15,6 +15,7 @@
     font-size: 1.2rem;
 }
 
+/* Desktop links */
 .links a {
     margin-left: 1.5rem;
     text-decoration: none;
@@ -24,4 +25,50 @@
 
 .links a:hover {
     color: #0070f3;
+}
+
+/* Active link */
+.active {
+    color: #0070f3;
+    border-bottom: 2px solid #0070f3;
+    padding-bottom: 2px;
+}
+
+/* Hamburger button */
+.menuButton {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Mobile menu */
+.mobileMenu {
+    position: absolute;
+    top: 64px;
+    right: 1rem;
+    background: white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileMenu a {
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .links {
+        display: none;
+    }
+
+    .menuButton {
+        display: block;
+    }
 }
