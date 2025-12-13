@@ -22,16 +22,29 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>My Photo Portfolio</h1>
+      {/* HERO */}
+      <section className={styles.hero}>
+        <h1 className={styles.heroTitle}>Capturing Moments That Matter</h1>
+        <p className={styles.heroSubtitle}>
+          Professional photography for events, workshops, and portraits.
+          Timeless visuals that tell real stories.
+        </p>
+      </section>
 
-      <div className={styles.grid}>
+      {/* CATEGORY GRID */}
+      <section className={styles.grid}>
         {categories.map((category) => (
           <Link key={category.name} href={category.link} className={styles.card}>
-            <img src={category.image} alt={category.name} loading="lazy"/>
+            <img src={category.image} alt={category.name} loading="lazy" />
             <div className={styles.cardTitle}>{category.name}</div>
           </Link>
         ))}
-      </div>
+      </section>
+
+      {/* CTA */}
+      <section className={styles.cta}>
+        <Link href="/gallery/events">View Latest Work</Link>
+      </section>
     </div>
   );
 }
