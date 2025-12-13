@@ -1,0 +1,14 @@
+.footer {
+    margin-top: 3rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #eee;
+}
+
+@media (max-width: 600px) {
+    .footer {
+        font-size: 0.85rem;
+    }
+}

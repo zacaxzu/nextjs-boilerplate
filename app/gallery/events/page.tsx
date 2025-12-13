@@ -32,7 +32,7 @@ export default function EventsPage() {
             className={styles.masonryItem}
             onClick={() => setSelectedImage(src)}
           >
-            <img src={src} alt={`Event ${index + 1}`} />
+            <img src={src} alt={`Event ${index + 1}`} loading="lazy"/>
           </div>
         ))}
       </div>
@@ -40,7 +40,7 @@ export default function EventsPage() {
       {/* Lightbox */}
       {selectedImage && (
         <div className={styles.lightbox} onClick={() => setSelectedImage(null)}>
-            <img src={selectedImage} alt="Full size" />
+            <img src={selectedImage} alt="Full size" loading="lazy"/>
         </div>
         )}
     </div>
