@@ -51,7 +51,7 @@ export default function EventsPage() {
         {images.map((src, index) => (
           <div
             key={index}
-            ref={(el) => (itemsRef.current[index] = el)}
+            ref={(el) => {itemsRef.current[index] = el;}}
             className={styles.masonryItem}
             onClick={() => setSelectedImage(src)}
           >
