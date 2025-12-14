@@ -93,3 +93,15 @@
 .cta a:hover {
     opacity: 0.85;
 }
+
+/* Animated cards */
+.card {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.cardVisible {
+    opacity: 1;
+    transform: translateY(0);
+}
