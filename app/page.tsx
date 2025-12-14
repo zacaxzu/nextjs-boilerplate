@@ -30,6 +30,16 @@ export default function Home() {
       image: "/images/photo3.jpg",
       link: "/gallery/portraits",
     },
+    {
+      key: "concerts",
+      image: "/images/photo4.jpg",
+      link: "/gallery/concerts",
+    },
+    {
+      key: "macro",
+      image: "/images/photo4.jpg",
+      link: "/gallery/macro",
+    }
   ];
 
   useEffect(() => {
