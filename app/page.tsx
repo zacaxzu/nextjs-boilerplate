@@ -17,12 +17,12 @@ export default function Home() {
   }[] = [
     {
       key: "events",
-      image: "/images/photo1.jpg",
+      image: "/images/events/photo1.jpg",
       link: "/gallery/events",
     },
     {
       key: "workshops",
-      image: "/images/photo2.jpg",
+      image: "/images/workshops/20211207_MACIKLI_mlade_na_bicikle_predavanje_d_zeljka_baca_23.jpg",
       link: "/gallery/workshops",
     },
     {
@@ -32,12 +32,12 @@ export default function Home() {
     },
     {
       key: "concerts",
-      image: "/images/photo4.jpg",
+      image: "/images/photo3.jpg",
       link: "/gallery/concerts",
     },
     {
       key: "macro",
-      image: "/images/photo4.jpg",
+      image: "/images/macro/20220806-IMG_3338-Edit.jpg",
       link: "/gallery/macro",
     }
   ];
