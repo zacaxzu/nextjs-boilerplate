@@ -17,7 +17,7 @@ export default function Home() {
   }[] = [
     {
       key: "talks",
-      image: "/images/talks/photo1.jpg",
+      image: "/images/talks/20201020_job_fair_CROZ_ivan_derek_06.jpg",
       link: "/gallery/talks",
     },
     {
@@ -32,7 +32,7 @@ export default function Home() {
     },
     {
       key: "concerts",
-      image: "/images/concerts/20220319_JOLLY_ROGERS_d_zeljka_baca_02.jpg",
+      image: "/images/concerts/20240626_inmusic_bombay_bicycle_club_d_zeljka_baca_02.jpg",
       link: "/gallery/concerts",
     },
     {
@@ -42,7 +42,7 @@ export default function Home() {
     },
     {
       key: "analog",
-      image: "/images/macro/20220806-IMG_3338-Edit.jpg",
+      image: "/images/analog/20220127_Mamut_d_zeljka_baca_02.jpg",
       link: "/gallery/analog",
     },
     {
