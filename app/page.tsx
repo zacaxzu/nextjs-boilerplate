@@ -27,7 +27,7 @@ export default function Home() {
     },
     {
       key: "portraits",
-      image: "/images/photo3.jpg",
+      image: "/images/portraits/StockCake-Intense_gaze_portrait-1227405-medium.jpg",
       link: "/gallery/portraits",
     },
     {
