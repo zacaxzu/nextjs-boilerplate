@@ -16,9 +16,9 @@ export default function Home() {
     link: string;
   }[] = [
     {
-      key: "events",
-      image: "/images/events/photo1.jpg",
-      link: "/gallery/events",
+      key: "talks",
+      image: "/images/talks/photo1.jpg",
+      link: "/gallery/talks",
     },
     {
       key: "workshops",
@@ -32,13 +32,23 @@ export default function Home() {
     },
     {
       key: "concerts",
-      image: "/images/photo3.jpg",
+      image: "/images/concerts/20220319_JOLLY_ROGERS_d_zeljka_baca_02.jpg",
       link: "/gallery/concerts",
     },
     {
       key: "macro",
       image: "/images/macro/20220806-IMG_3338-Edit.jpg",
       link: "/gallery/macro",
+    },
+    {
+      key: "analog",
+      image: "/images/macro/20220806-IMG_3338-Edit.jpg",
+      link: "/gallery/analog",
+    },
+    {
+      key: "food",
+      image: "/images/food/20221029_BBQ_radionica_subota_d_zeljka_baca_17.jpg",
+      link: "/gallery/food",
     }
   ];
 
