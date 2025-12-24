@@ -24,12 +24,12 @@ export default function Home() {
       key: "workshops",
       image: "/images/workshops/20211207_MACIKLI_mlade_na_bicikle_predavanje_d_zeljka_baca_23.jpg",
       link: "/gallery/workshops",
-    },/*
+    },
     {
       key: "portraits",
       image: "/images/photo3.jpg",
       link: "/gallery/portraits",
-    },*/
+    },
     {
       key: "concerts",
       image: "/images/concerts/20240626_inmusic_bombay_bicycle_club_d_zeljka_baca_02.jpg",
