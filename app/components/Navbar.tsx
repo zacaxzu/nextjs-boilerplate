@@ -37,7 +37,7 @@ export default function Navbar() {
           href="/gallery/events"
           className={isActive("/gallery/events") ? styles.active : ""}
         >
-          {t.events}
+          {t.talks}
         </Link>
         <Link
           href="/gallery/workshops"
@@ -68,7 +68,7 @@ export default function Navbar() {
             Home
           </Link>
           <Link href="/gallery/events" onClick={() => setOpen(false)}>
-            {t.events}
+            {t.talks}
           </Link>
           <Link href="/gallery/workshops" onClick={() => setOpen(false)}>
             {t.workshops}

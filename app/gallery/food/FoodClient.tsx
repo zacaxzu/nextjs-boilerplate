@@ -2,13 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import styles from "./ConcertsPage.module.css";
+import styles from "./FoodPage.module.css";
 
 interface Props {
   images: string[];
 }
 
-export default function ConcertsClient({ images }: Props) {
+export default function FoodClient({ images }: Props) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -37,7 +37,7 @@ export default function ConcertsClient({ images }: Props) {
       </Link>
 
       <h1 style={{ textAlign: "center", margin: "1.5rem 0" }}>
-        Concerts Gallery
+        Food Gallery
       </h1>
 
       <div className={styles.masonry}>
@@ -50,7 +50,7 @@ export default function ConcertsClient({ images }: Props) {
             className={styles.masonryItem}
             onClick={() => setSelectedImage(src)}
           >
-            <img src={src} alt={`Concert ${index + 1}`} loading="lazy" />
+            <img src={src} alt={`Food ${index + 1}`} loading="lazy" />
           </div>
         ))}
       </div>
