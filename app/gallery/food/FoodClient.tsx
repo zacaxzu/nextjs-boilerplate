@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import styles from "./FoodPage.module.css";
+import styles from "../../styles/gallery.module.css";
 
 interface Props {
   images: string[];

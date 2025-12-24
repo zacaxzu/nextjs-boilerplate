@@ -37,7 +37,7 @@ export default function EventsClient({ images }: Props) {
       </Link>
 
       <h1 style={{ textAlign: "center", margin: "1.5rem 0" }}>
-        Events Gallery
+        Portraits Gallery
       </h1>
 
       <div className={styles.masonry}>

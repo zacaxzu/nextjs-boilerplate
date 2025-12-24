@@ -1,0 +1,12 @@
+import fs from "fs";
+import path from "path";
+import EventsClient from "./AnalogClient";
+
+export default function EventsPage() {
+  const imagesDir = path.join(process.cwd(), "public/images/analog");
+  const images = fs.readdirSync(imagesDir).map(
+    (file) => `/images/analog/${file}`
+  );
+
+  return <EventsClient images={images} />;
+}
