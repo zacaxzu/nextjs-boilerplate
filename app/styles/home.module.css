@@ -86,6 +86,21 @@
     transform: scale(1.1);
 }
 
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 650px) {
+    .card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .imagePreview {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+}
+
 /* HERO */
 .hero {
     text-align: center;
@@ -122,7 +137,7 @@
 /* --- THE FLIP LOGIC --- */
 
 /* 1. Flip the whole card */
-.cardLink:nth-child(odd) .card {
+.cardLink:nth-child(even) .card {
     flex-direction: row-reverse;
 }
 
@@ -169,19 +184,4 @@
 
 .cardLink:nth-child(even) .card:hover .arrow {
     transform: translateX(-5px);
-}
-
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 650px) {
-    .card {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .imagePreview {
-        width: 100%;
-        aspect-ratio: 3 / 2;
-        border-right: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
 }
