@@ -1,12 +1,13 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import styles from "../../styles/gallery.module.css";
 
-// New helper component for smooth loading
+interface Props { images: string[]; }
+
 function GalleryImage({ src, alt }: { src: string; alt: string }) {
   const [isLoaded, setIsLoaded] = useState(false);
-
   return (
     <div className={`${styles.imageWrapper} ${isLoaded ? styles.loaded : ""}`}>
       <img
@@ -19,26 +20,19 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-interface Props {
-  images: string[];
-}
-
 export default function EventsClient({ images }: Props) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.visible);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
     itemsRef.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
@@ -46,10 +40,7 @@ export default function EventsClient({ images }: Props) {
 
   return (
     <div className={styles.pageContainer}>
-      <Link href="/" className={styles.backButton}>
-        ← Back
-      </Link>
-
+      <Link href="/" className={styles.backButton}>← Back</Link>
       <h1 className={styles.galleryTitle}>Macro Gallery</h1>
 
       <div className={styles.masonry}>
@@ -65,11 +56,27 @@ export default function EventsClient({ images }: Props) {
         ))}
       </div>
 
-      {selectedImage && (
-        <div className={styles.lightbox} onClick={() => setSelectedImage(null)}>
-          <img src={selectedImage} alt="Full view" className={styles.lightboxImage} />
-        </div>
-      )}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            className={styles.lightbox}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.img
+              src={selectedImage}
+              alt="Full view"
+              className={styles.lightboxImage}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
