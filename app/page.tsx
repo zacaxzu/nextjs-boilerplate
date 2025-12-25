@@ -89,23 +89,26 @@ export default function Home() {
               className={styles.card}
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <div className={styles.imageWrapper}>
+              {/* IMAGE PREVIEW NOW ON LEFT */}
+              <div className={styles.imagePreview}>
                 <img
                   src={category.image}
                   alt={String(t[category.key])}
                   className={styles.cardImage}
-                  loading="lazy"
                 />
               </div>
-              <div className={styles.cardTitle}>{t[category.key]}</div>
+
+              {/* TEXT CONTENT NOW ON RIGHT */}
+              <div className={styles.cardInfo}>
+                <h3 className={styles.cardTitle}>{t[category.key]}</h3>
+                <p className={styles.cardDescription}>
+                  <span className={styles.arrow}>→</span>
+                  <span className={styles.text}>{t.viewWork}</span>
+                </p>
+              </div>
             </div>
           </Link>
         ))}
-      </section>
-
-      {/* CTA */}
-      <section className={styles.cta}>
-        <Link href="/gallery/events">{t.viewWork}</Link>
       </section>
     </div>
   );

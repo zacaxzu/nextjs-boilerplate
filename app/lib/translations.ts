@@ -12,6 +12,7 @@ export const translations = {
     food:"Food",
     viewWork: "View Latest Work",
     back: "Back to Categories",
+    viewGallery: "Explore collection"
   },
   hr: {
     homeTitle: "Bilježenje Trenutaka Koji Vrijede",
@@ -26,5 +27,6 @@ export const translations = {
     food:"Hrana",
     viewWork: "Pogledaj Radove",
     back: "Natrag na Kategorije",
+    viewGallery: "Istraži kolekciju",
   },
 };
