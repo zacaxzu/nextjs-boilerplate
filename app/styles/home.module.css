@@ -61,11 +61,24 @@
 }
 
 .imagePreview {
-    width: 40%;
-    height: 100%;
+    flex: 1;
+    width: 100%;
+    /* Forces a consistent shape (16:9 is standard, 4:3 is more 'classic') */
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-    /* Adds a slight right border to separate image from text cleanly */
-    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    /* Placeholder color while loading */
+}
+
+.rowImage {
+    width: 100%;
+    height: 100%;
+    /* The Secret Sauce: crops the image to fill the box without stretching */
+    object-fit: cover;
+    /* Focuses on the center of the photo */
+    object-position: center;
+    display: block;
 }
 
 .cardImage {
@@ -84,21 +97,6 @@
 
 .card:hover .cardImage {
     transform: scale(1.1);
-}
-
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 650px) {
-    .card {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .imagePreview {
-        width: 100%;
-        aspect-ratio: 3 / 2;
-        border-right: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
 }
 
 /* HERO */
@@ -191,41 +189,13 @@
 @media (max-width: 768px) {
     .row {
         flex-direction: column;
-        /* Stack image on top of text */
-        gap: 1.5rem;
-        padding: 2rem 0;
-        /* Tighter spacing for mobile */
-        align-items: flex-start;
+        gap: 1rem;
     }
 
     .imagePreview {
         width: 100%;
-        /* Make image full width of the screen */
-        /* This is the magic line: */
-        aspect-ratio: 16 / 9;
-        border-radius: 8px;
-        /* Optional: slight rounding looks better on mobile */
-        overflow: hidden;
-    }
-
-    .rowImage {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* Crops the image to fill the 16:9 box without stretching */
-        object-position: center;
-        /* Ensures the middle of the photo is visible */
-    }
-
-    .rowInfo {
-        width: 100%;
-        text-align: left !important;
-        /* Force left align for mobile readability */
-    }
-
-    .rowTitle {
-        font-size: 1.8rem;
-        /* Slightly smaller for mobile */
-        margin-bottom: 0.5rem;
+        /* Spans the full width of the phone */
+        aspect-ratio: 3 / 2;
+        /* Slightly taller boxes look better on phones */
     }
 }
