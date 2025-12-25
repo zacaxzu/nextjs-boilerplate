@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import ConcertsClient from "./ConcertsClient";
+import ConcertsClient from "../macro/MacroClient";
 
 export default function ConcertsPage() {
   const imagesDir = path.join(process.cwd(), "public/images/concerts");
