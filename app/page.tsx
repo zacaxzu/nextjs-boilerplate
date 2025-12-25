@@ -8,7 +8,7 @@ import { useLanguage } from "./context/LanguageContext";
 export default function Home() {
   const { t } = useLanguage();
 
-  const cardsRef = useRef<(HTMLAnchorElement | null)[]>([]);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const categories: {
     key: keyof typeof t;
@@ -83,20 +83,22 @@ export default function Home() {
       {/* CATEGORY GRID */}
       <section className={styles.grid}>
         {categories.map((category, index) => (
-          <Link
-            key={category.key}
-            href={category.link}
-            ref={(el) => {
-              cardsRef.current[index] = el;
-            }}
-            className={`${styles.card}`}
-          >
-            <img
-              src={category.image}
-              alt={t[category.key]}
-              loading="lazy"
-            />
-            <div className={styles.cardTitle}>{t[category.key]}</div>
+          <Link key={category.key} href={category.link} className={styles.cardLink}>
+            <div
+              ref={(el) => { cardsRef.current[index] = el; }}
+              className={styles.card}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
+              <div className={styles.imageWrapper}>
+                <img
+                  src={category.image}
+                  alt={String(t[category.key])}
+                  className={styles.cardImage}
+                  loading="lazy"
+                />
+              </div>
+              <div className={styles.cardTitle}>{t[category.key]}</div>
+            </div>
           </Link>
         ))}
       </section>

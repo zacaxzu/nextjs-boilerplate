@@ -1,107 +1,119 @@
+:root {
+    --bg: #ffffff;
+    --fg: #111111;
+    --fg-muted: #666666;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --card-hover-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    --radius: 12px;
+    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .container {
-    padding: 3rem 2rem;
+    padding: 6rem 2rem;
+    /* Increased vertical padding for "premium" feel */
     max-width: 1200px;
     margin: auto;
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--fg);
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
 }
 
 .heroTitle {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    margin-bottom: 1rem;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    /* Slightly larger */
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
 }
 
 .heroSubtitle {
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 600px;
+    font-size: 1.25rem;
+    color: var(--fg-muted);
+    max-width: 550px;
     margin: auto;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* GRID */
 .grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-
-@media (min-width: 600px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 900px) {
-    .grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    /* More space between items */
 }
 
 /* CARD */
 .card {
+    display: block;
     text-decoration: none;
     color: inherit;
-    border-radius: 14px;
+    border-radius: var(--radius);
     overflow: hidden;
     background: white;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* CARD TEXT */
-.cardTitle {
-    padding: 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-/* CTA */
-.cta {
-    text-align: center;
-    margin-top: 4rem;
-}
-
-.cta a {
-    display: inline-block;
-    padding: 0.9rem 2rem;
-    background: #000;
-    color: white;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.cta a:hover {
-    opacity: 0.85;
-}
-
-/* Animated cards */
-.card {
+    box-shadow: var(--card-shadow);
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(30px);
+    transition: var(--transition);
 }
 
 .cardVisible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+/* IMAGE CONTAINER */
+.card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    /* Keeps all cards uniform regardless of source image */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+.card:hover img {
+    transform: scale(1.04);
+}
+
+/* CARD TEXT */
+.cardTitle {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    /* Left align is more editorial/modern */
+    letter-spacing: -0.01em;
+}
+
+/* CTA - "The Ghost Button" Look */
+.cta {
+    text-align: center;
+    margin-top: 6rem;
+}
+
+.cta a {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--fg);
+    color: white;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.cta a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
