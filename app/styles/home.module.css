@@ -3,10 +3,17 @@
 .grid {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    /* Increased for a more professional 'breathe' */
-    max-width: 900px;
+    gap: 6rem;
+
+    /* 1. Limit the width so it doesn't stretch too far on desktop */
+    max-width: 1000px;
     margin: 0 auto;
+
+    /* 2. Add 'Gutters' so it never touches the screen edge */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 5rem;
+    /* Space at the very bottom of the page */
 }
 
 .card {
@@ -100,6 +107,13 @@
 }
 
 /* HERO SECTION - USING VARIABLES */
+.hero {
+    text-align: center;
+    margin-bottom: 6rem;
+    /* Ensure hero text follows the same padding as the grid */
+    padding: 0 1rem;
+}
+
 .heroTitle {
     text-align: center;
     font-size: clamp(2.5rem, 6vw, 4rem);
@@ -196,7 +210,12 @@
         /* Slightly taller boxes look better on phones */
     }
     
-    
+    .grid {
+        /* Slightly tighter padding for small screens to save space */
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        gap: 4rem;
+    }
     
     .lightboxImage {
         max-width: 95%;
