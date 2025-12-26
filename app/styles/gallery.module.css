@@ -84,18 +84,87 @@
 .lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(255, 255, 255, 0.466);
-    /* White lightbox is more "pro gallery" */
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 999;
+    z-index: 2000;
+}
+
+.lightboxOverlay {
+    position: absolute;
+    inset: 0;
+    /* Fills the whole screen */
+    background: rgba(255, 255, 255, 0.11);
+    backdrop-filter: blur(15px);
     cursor: zoom-out;
-    backdrop-filter: blur(10px);
+    z-index: 1;
+    /* Sits behind the image */
+}
+
+.closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #000;
+    cursor: pointer;
+    z-index: 2010;
+    /* Sits on top of the image if necessary */
+    padding: 10px;
 }
 
 .lightboxImage {
+    max-width: 90%;
+    max-height: 80vh;
+    z-index: 2005;
+    touch-action: none;
+}
+
+.lightboxImage {
+    position: relative;
+    z-index: 2;
+    /* Sits in front of the overlay */
     max-width: 85%;
-    max-height: 85vh;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    /* Keeps a 7.5% gap on each side to click the background */
+    max-height: 80vh;
+    object-fit: contain;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    touch-action: none;
+}
+
+.lightboxImage:active {
+    cursor: grabbing;
+}
+
+.navButtonPrev,
+.navButtonNext {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 3rem;
+    font-weight: 200;
+    cursor: pointer;
+    padding: 2rem;
+    z-index: 1010;
+    opacity: 0.4;
+    transition: opacity 0.3s, scale 0.2s;
+}
+
+.navButtonPrev:hover,
+.navButtonNext:hover {
+    opacity: 1;
+    scale: 1.1;
+}
+
+.navButtonPrev {
+    left: 1rem;
+}
+
+.navButtonNext {
+    right: 1rem;
 }

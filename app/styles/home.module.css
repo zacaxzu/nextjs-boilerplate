@@ -184,7 +184,11 @@
     transform: translateX(-5px);
 }
 
-/* home.module.css */
+/* gallery.module.css */
+
+
+
+/* Mobile optimization */
 
 @media (max-width: 768px) {
     .row {
@@ -197,5 +201,14 @@
         /* Spans the full width of the phone */
         aspect-ratio: 3 / 2;
         /* Slightly taller boxes look better on phones */
+    }
+    
+    .navButtonPrev,
+    .navButtonNext {
+        display: none;
+    }
+    
+    .lightboxImage {
+        max-width: 95%;
     }
 }

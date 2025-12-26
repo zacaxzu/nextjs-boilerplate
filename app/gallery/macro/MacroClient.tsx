@@ -24,6 +24,23 @@ export default function EventsClient({ images }: Props) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  // Helper to change images
+  const navigateImage = (direction: number) => {
+    if (!selectedImage) return;
+    const currentIndex = images.indexOf(selectedImage);
+    const nextIndex = (currentIndex + direction + images.length) % images.length;
+    setSelectedImage(images[nextIndex]);
+  };
+
+  const handleDragEnd = (event: any, info: any) => {
+    const swipeThreshold = 50; // Minimum pixels to trigger a change
+    if (info.offset.x > swipeThreshold) {
+      navigateImage(-1); // Swiped right -> Previous
+    } else if (info.offset.x < -swipeThreshold) {
+      navigateImage(1);  // Swiped left -> Next
+    }
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -56,24 +73,39 @@ export default function EventsClient({ images }: Props) {
         ))}
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {selectedImage && (
           <motion.div
             className={styles.lightbox}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
           >
+            {/* 1. THE BACKGROUND OVERLAY (Clicking this exits) */}
+            <div 
+              className={styles.lightboxOverlay} 
+              onClick={() => setSelectedImage(null)} 
+            />
+
+            {/* 2. THE IMAGE (Clicking/Dragging this won't exit) */}
             <motion.img
+              key={selectedImage}
               src={selectedImage}
-              alt="Full view"
               className={styles.lightboxImage}
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              // Swipe logic
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              onDragEnd={handleDragEnd}
+              // Animation
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -50, opacity: 0 }}
               transition={{ duration: 0.3 }}
             />
+
+            {/* 3. NAVIGATION ARROWS (Optional) */}
+            <button className={styles.navButtonPrev} onClick={() => navigateImage(-1)}>‹</button>
+            <button className={styles.navButtonNext} onClick={() => navigateImage(1)}>›</button>
           </motion.div>
         )}
       </AnimatePresence>
