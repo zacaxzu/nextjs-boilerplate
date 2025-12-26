@@ -203,10 +203,7 @@
         /* Slightly taller boxes look better on phones */
     }
     
-    .navButtonPrev,
-    .navButtonNext {
-        display: none;
-    }
+    
     
     .lightboxImage {
         max-width: 95%;

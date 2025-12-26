@@ -168,3 +168,10 @@
 .navButtonNext {
     right: 1rem;
 }
+
+@media (max-width: 768px) {
+    .navButtonPrev,
+        .navButtonNext {
+            display: none;
+        }
+}
