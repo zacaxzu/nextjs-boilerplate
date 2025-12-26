@@ -12,7 +12,8 @@ export const translations = {
     food:"Food",
     viewWork: "View Latest Work",
     back: "Back to Categories",
-    viewGallery: "Explore collection"
+    viewGallery: "Explore collection",
+    about: "About",
   },
   hr: {
     homeTitle: "Bilježenje Trenutaka Koji Vrijede",
@@ -28,5 +29,6 @@ export const translations = {
     viewWork: "Pogledaj Radove",
     back: "Natrag na Kategorije",
     viewGallery: "Istraži kolekciju",
+    about: "O meni",
   },
 };

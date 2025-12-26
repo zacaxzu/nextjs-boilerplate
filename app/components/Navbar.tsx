@@ -16,6 +16,8 @@ export default function Navbar() {
   const isActive = (path: string) =>
     pathname === path || pathname.startsWith(path + "/");
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>My Portfolio</div>
@@ -33,23 +35,29 @@ export default function Navbar() {
         <Link href="/" className={isActive("/") ? styles.active : ""}>
           Home
         </Link>
+        {/* Dropdown Container */}
+      <div 
+        className={styles.dropdown}
+        onMouseEnter={() => setIsDropdownOpen(true)}
+        onMouseLeave={() => setIsDropdownOpen(false)}
+      >
+        <button className={styles.dropdownBtn}>
+          Gallery <span className={styles.chevron}>▾</span>
+        </button>
+        
+        {isDropdownOpen && (
+          <div className={styles.dropdownContent}>
+            <Link href="/gallery/insects">Insects</Link>
+            <Link href="/gallery/botanicals">Botanicals</Link>
+            <Link href="/gallery/abstract">Abstract</Link>
+          </div>
+        )}
+      </div>
         <Link
-          href="/gallery/events"
-          className={isActive("/gallery/events") ? styles.active : ""}
+          href="/about"
+          className={isActive("/about") ? styles.active : ""}
         >
-          {t.talks}
-        </Link>
-        <Link
-          href="/gallery/workshops"
-          className={isActive("/gallery/workshops") ? styles.active : ""}
-        >
-          {t.workshops}
-        </Link>
-        <Link
-          href="/gallery/portraits"
-          className={isActive("/gallery/portraits") ? styles.active : ""}
-        >
-          {t.portraits}
+          {t.about}
         </Link>
       </div>
 
@@ -75,6 +83,9 @@ export default function Navbar() {
           </Link>
           <Link href="/gallery/portraits" onClick={() => setOpen(false)}>
             {t.portraits}
+          </Link>
+          <Link href="/pages/about" onClick={() => setOpen(false)}>
+            {t.about}
           </Link>
         </div>
       )}

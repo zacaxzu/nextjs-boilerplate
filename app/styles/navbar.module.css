@@ -87,3 +87,73 @@
         display: block;
     }
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdownBtn {
+    background: none;
+    border: none;
+    color: var(--foreground);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.chevron {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .chevron {
+    transform: rotate(180deg);
+}
+
+.dropdownContent {
+    position: absolute;
+    top: 100%;
+    left: 1.5rem;
+    min-width: 160px;
+    background: var(--background);
+    /* Adapts to Dark Mode */
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    z-index: 1000;
+    margin-top: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.dropdownContent a {
+    display: block;
+    padding: 0.75rem 1.5rem !important;
+    margin: 0 !important;
+    font-size: 0.9rem;
+    color: var(--foreground);
+    transition: background 0.2s;
+}
+
+.dropdownContent a:hover {
+    background: rgba(128, 128, 128, 0.05);
+    color: #0070f3;
+}
+
+/* Mobile Tweak: Ensure the dropdown doesn't overflow */
+@media (max-width: 768px) {
+    .dropdownContent {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding-left: 1rem;
+        background: transparent;
+    }
+}
