@@ -3,72 +3,74 @@
 .grid {
     display: flex;
     flex-direction: column;
-    /* Stack rows vertically */
-    gap: 2rem;
+    gap: 4rem;
+    /* Increased for a more professional 'breathe' */
     max-width: 900px;
-    /* Narrower container looks better for list layouts */
     margin: 0 auto;
 }
 
 .card {
     display: flex;
     flex-direction: row;
-    /* Ensures Left to Right flow */
-    height: 220px;
-    background: #ffffff;
-    border-radius: 16px;
+    height: auto;
+    /* Changed from fixed 220px to allow flexibility */
+    /* REMOVED background: #ffffff to merge with global background */
+    background: transparent;
     overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+
+    /* Subtle divider instead of a box */
+    border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+    padding-bottom: 2rem;
 
     /* Entrance Animation */
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateY(20px);
+    /* Vertical reveal feels more premium than horizontal */
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cardVisible {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 .cardInfo {
     flex: 1;
-    padding: 2.5rem;
+    padding: 1.5rem 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Text looks better left-aligned when the image is on the left */
     text-align: left;
 }
 
 .cardTitle {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 300;
+    /* Lighter weight is more professional */
     margin-bottom: 0.5rem;
-    color: #111;
+    /* USE VARIABLE FROM GLOBAL.CSS */
+    color: var(--foreground);
 }
 
 .cardDescription {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    /* USE ADAPTIVE COLOR */
     color: #888;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     font-weight: 500;
 }
 
 .imagePreview {
     flex: 1;
-    width: 100%;
-    /* Forces a consistent shape (16:9 is standard, 4:3 is more 'classic') */
     aspect-ratio: 16 / 9;
     overflow: hidden;
     border-radius: 4px;
-    background-color: #f0f0f0;
-    /* Placeholder color while loading */
+    /* ADAPTIVE PLACEHOLDER */
+    background-color: rgba(128, 128, 128, 0.1);
 }
 
 .rowImage {
@@ -90,32 +92,27 @@
 
 /* HOVER EFFECTS */
 .card:hover {
-    background: #fafafa;
-    border-color: #ddd;
     transform: scale(1.02);
 }
 
 .card:hover .cardImage {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-/* HERO */
-.hero {
-    text-align: center;
-    margin-bottom: 6rem;
-}
-
+/* HERO SECTION - USING VARIABLES */
 .heroTitle {
+    text-align: center;
     font-size: clamp(2.5rem, 6vw, 4rem);
-    /* Slightly larger */
     font-weight: 800;
     letter-spacing: -0.03em;
     margin-bottom: 1.5rem;
+    color: var(--foreground);
 }
 
 .heroSubtitle {
     font-size: 1.25rem;
-    color: var(--fg-muted);
+    color: #888;
+    /* Stays readable on both black and white */
     max-width: 550px;
     margin: auto;
     line-height: 1.5;
@@ -183,10 +180,6 @@
 .cardLink:nth-child(even) .card:hover .arrow {
     transform: translateX(-5px);
 }
-
-/* gallery.module.css */
-
-
 
 /* Mobile optimization */
 
