@@ -100,7 +100,7 @@
     font-weight: 500;
     font-size: 1rem;
     cursor: pointer;
-    padding: 0;
+    padding: 10px 0;
     margin-left: 1.5rem;
     display: flex;
     align-items: center;
@@ -120,17 +120,17 @@
 .dropdownContent {
     position: absolute;
     top: 100%;
-    left: 1.5rem;
-    min-width: 160px;
+    /* Sits exactly at the bottom of the nav */
+    left: 0;
+    min-width: 180px;
     background: var(--background);
-    /* Adapts to Dark Mode */
     border: 1px solid rgba(128, 128, 128, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 0.5rem 0;
     z-index: 1000;
+
+    /* Animation start state */
     margin-top: 10px;
-    backdrop-filter: blur(10px);
 }
 
 .dropdownContent a {
@@ -140,6 +140,18 @@
     font-size: 0.9rem;
     color: var(--foreground);
     transition: background 0.2s;
+}
+
+.dropdownContent::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    /* Reaches up to touch the navbar link */
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: transparent;
+    /* Invisible but clickable */
 }
 
 .dropdownContent a:hover {

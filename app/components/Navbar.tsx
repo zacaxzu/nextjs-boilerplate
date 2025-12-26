@@ -47,9 +47,13 @@ export default function Navbar() {
         
         {isDropdownOpen && (
           <div className={styles.dropdownContent}>
-            <Link href="/gallery/insects">Insects</Link>
-            <Link href="/gallery/botanicals">Botanicals</Link>
-            <Link href="/gallery/abstract">Abstract</Link>
+            <Link href="/gallery/talks">Talks</Link>
+            <Link href="/gallery/workshops">Workshops</Link>
+            <Link href="/gallery/portraits">Portraits</Link>
+            <Link href="/gallery/concerts">Concerts</Link>
+            <Link href="/gallery/macro">Macro</Link>
+            <Link href="/gallery/analog">Analog</Link>
+            <Link href="/gallery/food">Food</Link>
           </div>
         )}
       </div>
