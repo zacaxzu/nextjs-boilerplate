@@ -41,7 +41,7 @@ export default function Navbar() {
         onMouseEnter={() => setIsDropdownOpen(true)}
         onMouseLeave={() => setIsDropdownOpen(false)}
       >
-        <button className={styles.dropdownBtn}>
+        <button className={`${styles.dropdownBtn} ${pathname.includes('/gallery') ? styles.active : ""}`}>
           Gallery <span className={styles.chevron}>▾</span>
         </button>
         

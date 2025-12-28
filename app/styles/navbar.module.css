@@ -2,15 +2,13 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    /* Use variables for seamless dark mode */
     background: var(--background);
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
+    /* Matches your new grid gutters */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Adaptive border using the variable or a soft rgba */
-    border-bottom: 1px solid rgba(128, 128, 128, 0.15);
-    /* Glass effect (optional but very pro) */
+    border-bottom: 1px solid rgba(128, 128, 128, 0.1);
     backdrop-filter: blur(10px);
 }
 
@@ -20,28 +18,54 @@
     color: var(--foreground);
 }
 
-.links a {
-    margin-left: 1.5rem;
-    text-decoration: none;
-    color: var(--foreground);
-    /* Text color automatically flips */
-    font-weight: 500;
-    opacity: 0.8;
-    transition: opacity 0.2s, color 0.2s;
+.links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
-.links a:hover {
-    opacity: 1;
-    color: #0070f3;
-    /* Primary blue usually works on both themes */
+.links a {
+    position: relative;
+    color: var(--foreground-muted);
+    transition: color 0.3s ease;
+}
+
+.links a,
+.dropdownBtn {
+    text-decoration: none;
+    color: var(--foreground);
+    font-weight: 400;
+    font-size: 0.95rem;
+    opacity: 0.4;
+    /* Faded by default */
+    transition: opacity 0.3s ease, color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.links a:hover,
+.dropdown:hover .dropdownBtn,
+.active {
+    opacity: 1 !important;
 }
 
 /* Active link */
 .active {
-    color: #0070f3 !important;
-    border-bottom: 2px solid #0070f3;
-    padding-bottom: 2px;
-    opacity: 1 !important;
+    color: var(--foreground) !important;
+}
+
+.active::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: var(--foreground);
+    border-radius: 50%;
 }
 
 /* Hamburger button */
@@ -120,17 +144,15 @@
 .dropdownContent {
     position: absolute;
     top: 100%;
-    /* Sits exactly at the bottom of the nav */
-    left: 0;
+    left: -10px;
     min-width: 180px;
     background: var(--background);
     border: 1px solid rgba(128, 128, 128, 0.1);
     border-radius: 8px;
     padding: 0.5rem 0;
-    z-index: 1000;
-
-    /* Animation start state */
-    margin-top: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-top: 15px;
+    /* Visual gap */
 }
 
 .dropdownContent a {
@@ -145,18 +167,24 @@
 .dropdownContent::before {
     content: "";
     position: absolute;
-    top: -15px;
-    /* Reaches up to touch the navbar link */
+    top: -20px;
     left: 0;
     right: 0;
-    height: 15px;
+    height: 20px;
     background: transparent;
-    /* Invisible but clickable */
+}
+
+.dropdownContent a {
+    display: block;
+    padding: 0.6rem 1.2rem !important;
+    opacity: 0.7;
+    /* Sub-links slightly muted */
+    font-size: 0.85rem;
 }
 
 .dropdownContent a:hover {
+    opacity: 1;
     background: rgba(128, 128, 128, 0.05);
-    color: #0070f3;
 }
 
 /* Mobile Tweak: Ensure the dropdown doesn't overflow */
