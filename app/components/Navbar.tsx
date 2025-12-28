@@ -66,7 +66,7 @@ export default function Navbar() {
                 <Link href="/gallery/concerts">Concerts</Link>
                 <Link href="/gallery/macro">Macro</Link>
                 <Link href="/gallery/analog">Analog</Link>
-                <Link href="/gallery/food">Food</Link>
+                <Link href="/gallery/cooking">Cooking</Link>
               </div>
             )}
             </AnimatePresence>
@@ -119,7 +119,7 @@ export default function Navbar() {
                     <Link href="/gallery/concerts" onClick={handleMobileLinkClick}>{t.concerts}</Link>
                     <Link href="/gallery/macro" onClick={handleMobileLinkClick}>{t.macro}</Link>
                     <Link href="/gallery/analog" onClick={handleMobileLinkClick}>{t.analog}</Link>
-                    <Link href="/gallery/food" onClick={handleMobileLinkClick}>{t.food}</Link>
+                    <Link href="/gallery/cooking" onClick={handleMobileLinkClick}>{t.cooking}</Link>
                   </motion.div>
                 )}
               </AnimatePresence>

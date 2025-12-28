@@ -46,9 +46,9 @@ export default function Home() {
       link: "/gallery/analog",
     },
     {
-      key: "food",
-      image: "/images/food/20221029_BBQ_radionica_subota_d_zeljka_baca_17.jpg",
-      link: "/gallery/food",
+      key: "cooking",
+      image: "/images/cooking/20221029_BBQ_radionica_subota_d_zeljka_baca_17.jpg",
+      link: "/gallery/cooking",
     }
   ];
 
