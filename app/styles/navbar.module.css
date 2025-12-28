@@ -104,20 +104,16 @@
 .dropdownContent {
     position: absolute;
     top: 100%;
-    left: -15px;
-    min-width: 180px;
+    left: -50px;
+    /* Offset to center the wider menu */
+
     background: var(--background);
     border: 1px solid rgba(128, 128, 128, 0.1);
     border-radius: 12px;
-    /* Slightly rounder for modern look */
-    padding: 0.7rem 0;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-    margin-top: 10px;
-    transform-origin: top left;
-    /* Makes the scale animation start from the top */
+    padding: 1rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    margin-top: 12px;
     backdrop-filter: blur(10px);
-    overflow: hidden;
-    /* Keeps the hover highlights inside the rounded corners */
 }
 
 /* The Bridge (Prevents menu closing on move) */
@@ -152,7 +148,7 @@
 /* 4. MOBILE UI */
 .menuButton {
     display: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background: none;
     border: none;
     color: var(--foreground);
@@ -174,7 +170,7 @@
 }
 
 .mobileMenu a {
-    font-size: 1.8rem;
+    font-size: 1rem;
     text-decoration: none;
     color: var(--foreground);
     font-weight: 300;
