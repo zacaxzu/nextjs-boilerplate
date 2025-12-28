@@ -9,10 +9,15 @@ import { useLanguage } from "../context/LanguageContext";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // Mobile menu open/close
+  const [mobileGalleryOpen, setMobileGalleryOpen] = useState(false); // Mobile dropdown toggle
 
-  // ✅ MOVE HOOK HERE
   const { toggleLanguage, language, t } = useLanguage();
+
+  const handleMobileLinkClick = () => {
+    setOpen(false);
+    setMobileGalleryOpen(false);
+  };
 
   const isActive = (path: string) =>
     pathname === path || pathname.startsWith(path + "/");
@@ -68,46 +73,56 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* Mobile hamburger */}
-      <button
-        className={styles.menuButton}
-        onClick={() => setOpen(!open)}
-      >
-        ☰
+      {/* MOBILE HAMBURGER */}
+      <button className={styles.menuButton} onClick={() => setOpen(!open)}>
+        {open ? "✕" : "☰"}
       </button>
 
-      {/* Mobile menu */}
-      {open && (
-        <div className={styles.mobileMenu}>
-          <Link href="/" onClick={() => setOpen(false)}>
-            Home
-          </Link>
-          <Link href="/gallery/talks" onClick={() => setOpen(false)}>
-            {t.talks}
-          </Link>
-          <Link href="/gallery/workshops" onClick={() => setOpen(false)}>
-            {t.workshops}
-          </Link>
-          <Link href="/gallery/portraits" onClick={() => setOpen(false)}>
-            {t.portraits}
-          </Link>
-          <Link href="/pages/concerts" onClick={() => setOpen(false)}>
-            {t.concerts}
-          </Link>
-          <Link href="/pages/macro" onClick={() => setOpen(false)}>
-            {t.macro}
-          </Link>
-          <Link href="/pages/analog" onClick={() => setOpen(false)}>
-            {t.analog}
-          </Link>
-          <Link href="/pages/food" onClick={() => setOpen(false)}>
-            {t.food}
-          </Link>
-          <Link href="/pages/contact" onClick={() => setOpen(false)}>
-            {t.contact}
-          </Link>
-        </div>
-      )}
+      {/* MOBILE MENU OVERLAY */}
+      <AnimatePresence>
+        {open && (
+          <motion.div 
+            className={styles.mobileMenu}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", duration: 0.3 }}
+          >
+            <Link href="/" onClick={handleMobileLinkClick}>Home</Link>
+            
+            {/* MOBILE DROPDOWN ACCORDION */}
+            <div className={styles.mobileDropdownContainer}>
+              <button 
+                className={styles.mobileDropdownBtn} 
+                onClick={() => setMobileGalleryOpen(!mobileGalleryOpen)}
+              >
+                Gallery <span>{mobileGalleryOpen ? "▴" : "▾"}</span>
+              </button>
+              
+              <AnimatePresence>
+                {mobileGalleryOpen && (
+                  <motion.div 
+                    className={styles.mobileSubMenu}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                  >
+                    <Link href="/gallery/talks" onClick={handleMobileLinkClick}>{t.talks}</Link>
+                    <Link href="/gallery/workshops" onClick={handleMobileLinkClick}>{t.workshops}</Link>
+                    <Link href="/gallery/portraits" onClick={handleMobileLinkClick}>{t.portraits}</Link>
+                    <Link href="/gallery/concerts" onClick={handleMobileLinkClick}>{t.concerts}</Link>
+                    <Link href="/gallery/macro" onClick={handleMobileLinkClick}>{t.macro}</Link>
+                    <Link href="/gallery/analog" onClick={handleMobileLinkClick}>{t.analog}</Link>
+                    <Link href="/gallery/food" onClick={handleMobileLinkClick}>{t.food}</Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <Link href="/contact" onClick={handleMobileLinkClick}>{t.contact}</Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
