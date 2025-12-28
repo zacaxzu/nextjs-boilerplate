@@ -58,10 +58,10 @@ export default function Navbar() {
         )}
       </div>
         <Link
-          href="/about"
-          className={isActive("/about") ? styles.active : ""}
+          href="/contact"
+          className={isActive("/contact") ? styles.active : ""}
         >
-          {t.about}
+          {t.contact}
         </Link>
       </div>
 

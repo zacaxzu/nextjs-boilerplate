@@ -14,6 +14,7 @@ export const translations = {
     back: "Back to Categories",
     viewGallery: "Explore collection",
     about: "About",
+    contact: "Contact",
   },
   hr: {
     homeTitle: "Bilježenje Trenutaka Koji Vrijede",
@@ -30,5 +31,6 @@ export const translations = {
     back: "Natrag na Kategorije",
     viewGallery: "Istraži kolekciju",
     about: "O meni",
+    contact: "Kontakt",
   },
 };
