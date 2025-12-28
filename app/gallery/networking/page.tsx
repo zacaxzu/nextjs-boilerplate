@@ -3,9 +3,9 @@ import path from "path";
 import EventsClient from "../macro/MacroClient";
 
 export default function EventsPage() {
-  const imagesDir = path.join(process.cwd(), "public/images/talks");
+  const imagesDir = path.join(process.cwd(), "public/images/networking");
   const images = fs.readdirSync(imagesDir).map(
-    (file) => `/images/talks/${file}`
+    (file) => `/images/networking/${file}`
   );
 
   return <EventsClient images={images} />;

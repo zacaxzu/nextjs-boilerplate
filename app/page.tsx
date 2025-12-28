@@ -16,9 +16,9 @@ export default function Home() {
     link: string;
   }[] = [
     {
-      key: "talks",
-      image: "/images/talks/20201020_job_fair_CROZ_ivan_derek_06.jpg",
-      link: "/gallery/talks",
+      key: "networking",
+      image: "/images/networking/20201020_job_fair_CROZ_ivan_derek_06.jpg",
+      link: "/gallery/networking",
     },
     {
       key: "workshops",

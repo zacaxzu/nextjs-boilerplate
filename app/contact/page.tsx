@@ -52,8 +52,8 @@ export default function Contact() {
       <div className={styles.contactInfo}>
         <motion.div className={styles.method} variants={itemVariants}>
           <span className={styles.label}>Email</span>
-          <a href="mailto:hello@yourname.com" className={styles.link}>
-            hello@yourname.com
+          <a href="mailto:zeljka.baca1@gmail.com" className={styles.link}>
+            zeljka.baca1@gmail.com
           </a>
         </motion.div>
 
@@ -61,7 +61,6 @@ export default function Contact() {
           <span className={styles.label}>Social</span>
           <div className={styles.socialLinks}>
             <a href="https://instagram.com" target="_blank" className={styles.link}>Instagram</a>
-            <a href="https://twitter.com" target="_blank" className={styles.link}>Twitter</a>
           </div>
         </motion.div>
       </div>

@@ -3,7 +3,7 @@ export const translations = {
     homeTitle: "Capturing Moments That Matter",
     homeSubtitle:
       "Professional photography for events, workshops, and portraits.",
-    talks: "Talks",
+    networking: "Networking",
     workshops: "Workshops",
     portraits: "Portraits",
     concerts: "Concerts",
@@ -20,7 +20,7 @@ export const translations = {
     homeTitle: "Bilježenje Trenutaka Koji Vrijede",
     homeSubtitle:
       "Profesionalna fotografija za događaje, radionice i portrete.",
-    talks: "Predavanja",
+    networking: "Networking",
     workshops: "Radionice",
     portraits: "Portreti",
     concerts: "Koncerti",

@@ -26,7 +26,13 @@ export default function Navbar() {
 
   return (
     <nav className={styles.nav}>
-      <div className={styles.logo}>My Portfolio</div>
+      <Link 
+        href="/" 
+        className={styles.logo} 
+        onClick={() => setOpen(false)}
+      >
+        My Portfolio
+      </Link>
 
       {/* Language switch */}
       <button
@@ -54,7 +60,7 @@ export default function Navbar() {
             <AnimatePresence>
             {isDropdownOpen && (
               <div className={styles.dropdownContent}>
-                <Link href="/gallery/talks">Talks</Link>
+                <Link href="/gallery/networking">Networking</Link>
                 <Link href="/gallery/workshops">Workshops</Link>
                 <Link href="/gallery/portraits">Portraits</Link>
                 <Link href="/gallery/concerts">Concerts</Link>
@@ -107,7 +113,7 @@ export default function Navbar() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                   >
-                    <Link href="/gallery/talks" onClick={handleMobileLinkClick}>{t.talks}</Link>
+                    <Link href="/gallery/networking" onClick={handleMobileLinkClick}>{t.networking}</Link>
                     <Link href="/gallery/workshops" onClick={handleMobileLinkClick}>{t.workshops}</Link>
                     <Link href="/gallery/portraits" onClick={handleMobileLinkClick}>{t.portraits}</Link>
                     <Link href="/gallery/concerts" onClick={handleMobileLinkClick}>{t.concerts}</Link>
