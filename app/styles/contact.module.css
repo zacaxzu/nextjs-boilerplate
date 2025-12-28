@@ -1,58 +1,19 @@
-.container {
-    max-width: 800px;
-    margin: 120px auto;
-    padding: 0 2rem;
-    color: var(--foreground);
-}
-
-.hero {
-    margin-bottom: 5rem;
-}
-
-.title {
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    font-weight: 300;
-    letter-spacing: -0.04em;
-    margin-bottom: 1.5rem;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    color: var(--foreground-muted);
-    max-width: 500px;
-    line-height: 1.6;
-}
-
-.contactInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin-bottom: 6rem;
-}
-
-.method {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--foreground-muted);
-}
-
 .link {
     font-size: 1.5rem;
     color: var(--foreground);
     text-decoration: none;
-    transition: opacity 0.2s;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     width: fit-content;
+    display: inline-block;
+    opacity: 0.8;
 }
 
 .link:hover {
-    opacity: 0.5;
+    opacity: 1;
+    transform: translateX(8px);
+    /* Subtle slide to the right on hover */
+    color: #0070f3;
+    /* Or your preferred highlight color */
 }
 
 .socialLinks {
@@ -60,25 +21,46 @@
     gap: 2rem;
 }
 
-.footer {
-    border-top: 1px solid rgba(128, 128, 128, 0.1);
-    padding-top: 3rem;
+.socialLinks a {
+    position: relative;
 }
 
-.backHome {
-    color: var(--foreground-muted);
-    text-decoration: none;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+/* Subtle animated underline for social links */
+.socialLinks a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--foreground);
+    transition: width 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    .container {
-        margin: 80px auto;
+.socialLinks a:hover::after {
+    width: 100%;
+}
+
+.glow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, rgba(0, 112, 243, 0.05) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    filter: blur(80px);
+    pointer-events: none;
+    animation: pulse 10s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: translate(-50%, -50%) scale(1);
     }
 
-    .link {
-        font-size: 1.2rem;
+    to {
+        transform: translate(-45%, -55%) scale(1.2);
     }
 }
