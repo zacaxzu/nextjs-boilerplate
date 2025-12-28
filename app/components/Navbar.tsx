@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -36,27 +37,29 @@ export default function Navbar() {
           Home
         </Link>
         {/* Dropdown Container */}
-      <div 
-        className={styles.dropdown}
-        onMouseEnter={() => setIsDropdownOpen(true)}
-        onMouseLeave={() => setIsDropdownOpen(false)}
-      >
-        <button className={`${styles.dropdownBtn} ${pathname.includes('/gallery') ? styles.active : ""}`}>
-          Gallery <span className={styles.chevron}>▾</span>
-        </button>
-        
-        {isDropdownOpen && (
-          <div className={styles.dropdownContent}>
-            <Link href="/gallery/talks">Talks</Link>
-            <Link href="/gallery/workshops">Workshops</Link>
-            <Link href="/gallery/portraits">Portraits</Link>
-            <Link href="/gallery/concerts">Concerts</Link>
-            <Link href="/gallery/macro">Macro</Link>
-            <Link href="/gallery/analog">Analog</Link>
-            <Link href="/gallery/food">Food</Link>
+          <div 
+            className={styles.dropdown}
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+            >
+            <button className={`${styles.dropdownBtn} ${pathname.includes('/gallery') ? styles.active : ""}`}>
+              Gallery <span className={styles.chevron}>▾</span>
+            </button>
+            
+            <AnimatePresence>
+            {isDropdownOpen && (
+              <div className={styles.dropdownContent}>
+                <Link href="/gallery/talks">Talks</Link>
+                <Link href="/gallery/workshops">Workshops</Link>
+                <Link href="/gallery/portraits">Portraits</Link>
+                <Link href="/gallery/concerts">Concerts</Link>
+                <Link href="/gallery/macro">Macro</Link>
+                <Link href="/gallery/analog">Analog</Link>
+                <Link href="/gallery/food">Food</Link>
+              </div>
+            )}
+            </AnimatePresence>
           </div>
-        )}
-      </div>
         <Link
           href="/contact"
           className={isActive("/contact") ? styles.active : ""}
@@ -79,7 +82,7 @@ export default function Navbar() {
           <Link href="/" onClick={() => setOpen(false)}>
             Home
           </Link>
-          <Link href="/gallery/events" onClick={() => setOpen(false)}>
+          <Link href="/gallery/talks" onClick={() => setOpen(false)}>
             {t.talks}
           </Link>
           <Link href="/gallery/workshops" onClick={() => setOpen(false)}>
@@ -88,8 +91,20 @@ export default function Navbar() {
           <Link href="/gallery/portraits" onClick={() => setOpen(false)}>
             {t.portraits}
           </Link>
-          <Link href="/pages/about" onClick={() => setOpen(false)}>
-            {t.about}
+          <Link href="/pages/concerts" onClick={() => setOpen(false)}>
+            {t.concerts}
+          </Link>
+          <Link href="/pages/macro" onClick={() => setOpen(false)}>
+            {t.macro}
+          </Link>
+          <Link href="/pages/analog" onClick={() => setOpen(false)}>
+            {t.analog}
+          </Link>
+          <Link href="/pages/food" onClick={() => setOpen(false)}>
+            {t.food}
+          </Link>
+          <Link href="/pages/contact" onClick={() => setOpen(false)}>
+            {t.contact}
           </Link>
         </div>
       )}

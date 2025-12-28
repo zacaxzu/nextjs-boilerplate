@@ -1,20 +1,35 @@
+/* 1. BASE LAYOUT */
+/* navbar.module.css */
+
 .nav {
     position: sticky;
     top: 0;
-    z-index: 100;
+    /* Increase this to ensure it stays above images (which were at 2000 in your lightbox) */
+    z-index: 5000;
+
+    /* Change background from transparent to a solid variable with a blur */
     background: var(--background);
+
+    /* This adds a semi-transparent glass effect so you can see a hint 
+       of the photo passing under, but the text remains readable */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* For Safari support */
+
+    /* Add a slightly stronger border to separate it from photos */
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+
     padding: 1rem 2.5rem;
-    /* Matches your new grid gutters */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.1);
-    backdrop-filter: blur(10px);
 }
 
 .logo {
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--foreground);
 }
 
@@ -24,42 +39,34 @@
     gap: 2rem;
 }
 
-.links a {
-    position: relative;
-    color: var(--foreground-muted);
-    transition: color 0.3s ease;
-}
-
+/* 2. SHARED LINK STYLES (Desktop) */
 .links a,
 .dropdownBtn {
+    position: relative;
     text-decoration: none;
     color: var(--foreground);
-    font-weight: 400;
-    font-size: 0.95rem;
+    font-weight: 500;
+    font-size: 0.9rem;
     opacity: 0.4;
-    /* Faded by default */
-    transition: opacity 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 5px 0;
 }
 
+/* Hover & Active States */
 .links a:hover,
 .dropdown:hover .dropdownBtn,
 .active {
     opacity: 1 !important;
 }
 
-/* Active link */
-.active {
-    color: var(--foreground) !important;
-}
-
+/* The Active Dot Indicator */
 .active::after {
     content: "";
     position: absolute;
-    bottom: -8px;
+    bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
@@ -68,73 +75,26 @@
     border-radius: 50%;
 }
 
-/* Hamburger button */
-.menuButton {
-    display: none;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--foreground);
-    /* Ensure icon is visible in dark mode */
-}
-
-/* Mobile menu */
-.mobileMenu {
-    position: absolute;
-    top: 64px;
-    right: 1rem;
-    background: var(--background);
-    /* Match global theme */
-    border: 1px solid rgba(128, 128, 128, 0.2);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    min-width: 150px;
-}
-
-.mobileMenu a {
-    padding: 0.5rem 0;
-    text-decoration: none;
-    color: var(--foreground);
-}
-
-/* Responsive behavior */
-@media (max-width: 768px) {
-    .links {
-        display: none;
-    }
-
-    .menuButton {
-        display: block;
-    }
-}
-
+/* 3. DROPDOWN LOGIC */
 .dropdown {
     position: relative;
-    display: inline-block;
 }
 
 .dropdownBtn {
-    background: none;
-    border: none;
-    color: var(--foreground);
-    font-weight: 500;
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 10px 0;
-    margin-left: 1.5rem;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
 }
 
 .chevron {
+    display: inline-block;
     font-size: 0.7rem;
     opacity: 0.5;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dropdown:hover .chevron {
+    transform: rotate(180deg) translateY(-1px);
 }
 
 .dropdown:hover .chevron {
@@ -144,56 +104,94 @@
 .dropdownContent {
     position: absolute;
     top: 100%;
-    left: -10px;
+    left: -15px;
     min-width: 180px;
     background: var(--background);
     border: 1px solid rgba(128, 128, 128, 0.1);
-    border-radius: 8px;
-    padding: 0.5rem 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    margin-top: 15px;
-    /* Visual gap */
+    border-radius: 12px;
+    /* Slightly rounder for modern look */
+    padding: 0.7rem 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    margin-top: 10px;
+    transform-origin: top left;
+    /* Makes the scale animation start from the top */
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    /* Keeps the hover highlights inside the rounded corners */
 }
 
-.dropdownContent a {
-    display: block;
-    padding: 0.75rem 1.5rem !important;
-    margin: 0 !important;
-    font-size: 0.9rem;
-    color: var(--foreground);
-    transition: background 0.2s;
-}
-
+/* The Bridge (Prevents menu closing on move) */
 .dropdownContent::before {
     content: "";
     position: absolute;
-    top: -20px;
+    top: -15px;
     left: 0;
     right: 0;
-    height: 20px;
+    height: 15px;
     background: transparent;
 }
 
 .dropdownContent a {
     display: block;
-    padding: 0.6rem 1.2rem !important;
-    opacity: 0.7;
-    /* Sub-links slightly muted */
+    padding: 0.7rem 1.5rem;
     font-size: 0.85rem;
+    opacity: 0.6;
 }
+
+.dropdownContent a::after {
+    display: none;
+}
+
+/* No dots in dropdown */
 
 .dropdownContent a:hover {
     opacity: 1;
     background: rgba(128, 128, 128, 0.05);
 }
 
-/* Mobile Tweak: Ensure the dropdown doesn't overflow */
+/* 4. MOBILE UI */
+.menuButton {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--foreground);
+    cursor: pointer;
+}
+
+.mobileMenu {
+    position: fixed;
+    inset: 0;
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2.5rem;
+    z-index: 2000;
+    overflow-y: auto;
+    padding-top: 80px;
+}
+
+.mobileMenu a {
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: var(--foreground);
+    font-weight: 300;
+}
+
+/* 5. RESPONSIVE SWITCH */
 @media (max-width: 768px) {
-    .dropdownContent {
-        position: static;
-        box-shadow: none;
-        border: none;
-        padding-left: 1rem;
-        background: transparent;
+    .links {
+        display: none;
+    }
+
+    .menuButton {
+        display: block;
+        z-index: 2001;
+    }
+
+    .nav {
+        padding: 1rem 1.5rem;
     }
 }
