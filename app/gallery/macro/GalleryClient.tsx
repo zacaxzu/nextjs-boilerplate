@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "../../styles/gallery.module.css";
 
@@ -23,6 +24,13 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
 export default function EventsClient({ images }: Props) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  // 2. Get the current category from the URL
+  const pathname = usePathname(); 
+  const category = pathname.split("/").pop() || "Gallery"; 
+  
+  // Capitalize the first letter (e.g., "macro" -> "Macro")
+  const displayTitle = category.charAt(0).toUpperCase() + category.slice(1);
 
   // Helper to change images
   const navigateImage = (direction: number) => {
@@ -58,7 +66,7 @@ export default function EventsClient({ images }: Props) {
   return (
     <div className={styles.pageContainer}>
       <Link href="/" className={styles.backButton}>← Back</Link>
-      <h1 className={styles.galleryTitle}>Macro Gallery</h1>
+      <h1 className={styles.galleryTitle}>{displayTitle} Gallery</h1>
 
       <div className={styles.masonry}>
         {images.map((src, index) => (

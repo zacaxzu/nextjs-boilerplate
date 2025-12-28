@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import EventsClient from "../macro/MacroClient";
+import EventsClient from "../macro/GalleryClient";
 
 export default function EventsPage() {
   const imagesDir = path.join(process.cwd(), "public/images/portraits");

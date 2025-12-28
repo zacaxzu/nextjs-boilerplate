@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import FoodClient from "../macro/MacroClient";
+import FoodClient from "../macro/GalleryClient";
 
 export default function FoodPage() {
   const imagesDir = path.join(process.cwd(), "public/images/food");
