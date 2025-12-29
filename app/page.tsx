@@ -16,6 +16,21 @@ export default function Home() {
     link: string;
   }[] = [
     {
+      key: "cooking",
+      image: "/images/cooking/20221029_BBQ_radionica_subota_d_zeljka_baca_17.jpg",
+      link: "/gallery/cooking",
+    },
+    {
+      key: "macro",
+      image: "/images/macro/20220806-IMG_3338-Edit.jpg",
+      link: "/gallery/macro",
+    },
+    {
+      key: "concerts",
+      image: "/images/concerts/20240626_inmusic_bombay_bicycle_club_d_zeljka_baca_02.jpg",
+      link: "/gallery/concerts",
+    },
+    {
       key: "networking",
       image: "/images/networking/20201020_job_fair_CROZ_ivan_derek_06.jpg",
       link: "/gallery/networking",
@@ -31,25 +46,10 @@ export default function Home() {
       link: "/gallery/portraits",
     },
     {
-      key: "concerts",
-      image: "/images/concerts/20240626_inmusic_bombay_bicycle_club_d_zeljka_baca_02.jpg",
-      link: "/gallery/concerts",
-    },
-    {
-      key: "macro",
-      image: "/images/macro/20220806-IMG_3338-Edit.jpg",
-      link: "/gallery/macro",
-    },
-    {
       key: "analog",
       image: "/images/analog/20220127_Mamut_d_zeljka_baca_02.jpg",
       link: "/gallery/analog",
     },
-    {
-      key: "cooking",
-      image: "/images/cooking/20221029_BBQ_radionica_subota_d_zeljka_baca_17.jpg",
-      link: "/gallery/cooking",
-    }
   ];
 
   useEffect(() => {
