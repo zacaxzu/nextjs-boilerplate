@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import styles from "../styles/footer.module.css";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -13,16 +14,21 @@ export default function Footer() {
   if (pathname === "/contact") return null;
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.line} />
-      <div className={styles.content}>
-        <Link href="/contact" className={styles.contactLink}>
-          {t.contact} →
+    <footer className={styles.stickyFooter}>
+      <motion.div 
+        className={styles.container}
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        transition={{ delay: 0.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className={styles.left}>
+          <span className={styles.copyright}>© {new Date().getFullYear()}</span>
+        </div>
+        
+        <Link href="/contact" className={styles.contactButton}>
+          {t.contact} <span className={styles.arrow}>→</span>
         </Link>
-      </div>
-      <div className={styles.copyright}>
-        © {new Date().getFullYear()} My Portfolio
-      </div>
+      </motion.div>
     </footer>
   );
 }

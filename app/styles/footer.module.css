@@ -50,6 +50,68 @@
     margin-top: 2rem;
 }
 
+.stickyFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 4000;
+    /* Stays above images, below mobile menu */
+    background: rgba(var(--background-rgb), 0.8);
+    /* Semi-transparent */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Handles iOS Home Indicator bar */
+    padding-bottom: calc(1.2rem + env(safe-area-inset-bottom));
+}
+
+.copyright {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.5;
+}
+
+.contactButton {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    color: var(--foreground);
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 50px;
+    /* Capsule shape */
+    transition: all 0.3s ease;
+}
+
+.contactButton:hover {
+    background: var(--foreground);
+    color: var(--background);
+    border-color: var(--foreground);
+}
+
+.arrow {
+    margin-left: 8px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.contactButton:hover .arrow {
+    transform: translateX(4px);
+}
+
 @media (max-width: 768px) {
     .footer {
         padding: 3rem 1.5rem 2rem 1.5rem;
@@ -57,5 +119,20 @@
 
     .contactLink {
         font-size: 1.2rem;
+    }
+
+    .container {
+        padding: 1rem 1.5rem;
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    }
+
+    .copyright {
+        display: none;
+        /* Keep mobile extremely clean */
+    }
+
+    .stickyFooter {
+        display: flex;
+        justify-content: center;
     }
 }
