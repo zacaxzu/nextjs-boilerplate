@@ -62,11 +62,11 @@ export default function Navbar() {
               <div className={styles.dropdownContent}>
                 <Link href="/gallery/networking">Networking</Link>
                 <Link href="/gallery/workshops">Workshops</Link>
-                <Link href="/gallery/portraits">Portraits</Link>
                 <Link href="/gallery/concerts">Concerts</Link>
-                <Link href="/gallery/macro">Macro</Link>
-                <Link href="/gallery/analog">Analog</Link>
                 <Link href="/gallery/cooking">Cooking</Link>
+                <Link href="/gallery/macro">Macro</Link>
+                <Link href="/gallery/portraits">Portraits</Link>
+                <Link href="/gallery/analog">Analog</Link>
               </div>
             )}
             </AnimatePresence>
@@ -115,11 +115,11 @@ export default function Navbar() {
                   >
                     <Link href="/gallery/networking" onClick={handleMobileLinkClick}>{t.networking}</Link>
                     <Link href="/gallery/workshops" onClick={handleMobileLinkClick}>{t.workshops}</Link>
-                    <Link href="/gallery/portraits" onClick={handleMobileLinkClick}>{t.portraits}</Link>
                     <Link href="/gallery/concerts" onClick={handleMobileLinkClick}>{t.concerts}</Link>
-                    <Link href="/gallery/macro" onClick={handleMobileLinkClick}>{t.macro}</Link>
-                    <Link href="/gallery/analog" onClick={handleMobileLinkClick}>{t.analog}</Link>
                     <Link href="/gallery/cooking" onClick={handleMobileLinkClick}>{t.cooking}</Link>
+                    <Link href="/gallery/macro" onClick={handleMobileLinkClick}>{t.macro}</Link>
+                    <Link href="/gallery/portraits" onClick={handleMobileLinkClick}>{t.portraits}</Link>
+                    <Link href="/gallery/analog" onClick={handleMobileLinkClick}>{t.analog}</Link>
                   </motion.div>
                 )}
               </AnimatePresence>
