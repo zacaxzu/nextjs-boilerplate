@@ -21,10 +21,6 @@ export default function Footer() {
         animate={{ y: 0 }}
         transition={{ delay: 0.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className={styles.left}>
-          <span className={styles.copyright}>© {new Date().getFullYear()}</span>
-        </div>
-        
         <Link href="/contact" className={styles.contactButton}>
           {t.contact} <span className={styles.arrow}>→</span>
         </Link>
