@@ -77,6 +77,12 @@ export default function Navbar() {
         >
           {t.contact}
         </Link>
+        <Link
+          href="/about"
+          className={isActive("/about") ? styles.active : ""}
+        >
+          {t.about}
+        </Link>
       </div>
 
       {/* MOBILE HAMBURGER */}
@@ -126,6 +132,7 @@ export default function Navbar() {
             </div>
 
             <Link href="/contact" onClick={handleMobileLinkClick}>{t.contact}</Link>
+            <Link href="/about" onClick={handleMobileLinkClick}>{t.about}</Link>
           </motion.div>
         )}
       </AnimatePresence>

@@ -13,9 +13,12 @@ export const translations = {
     viewWork: "View Latest Work",
     back: "Back to Categories",
     viewGallery: "Explore collection",
-    about: "About",
+    about: "About me",
     contact: "Contact",
     footerText: "Contact",
+    aboutTitle: "About Me",
+    aboutIntro: "I am a photographer focused on capturing authentic moments and real emotions.",
+    aboutBody: "My work spans events, workshops, portraits, and artistic projects. I believe photography is about storytelling, atmosphere, and connection."
   },
   hr: {
     homeTitle: "Bilježenje Trenutaka Koji Vrijede",
@@ -34,5 +37,9 @@ export const translations = {
     about: "O meni",
     contact: "Kontakt",
     footerText: "Kontakt",
+    aboutTitle: "O meni",
+    aboutIntro: "Fotograf sam fokusiran na hvatanje autentičnih trenutaka i stvarnih emocija.",
+    aboutBody: "Moj rad obuhvaća evente, radionice, portrete i umjetničke projekte. Fotografija je za mene priča, atmosfera i povezanost."
+
   },
 };
