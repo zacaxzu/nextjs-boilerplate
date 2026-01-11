@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import styles from "./styles/home.module.css";
@@ -76,8 +77,23 @@ export default function Home() {
     <div className={styles.container}>
       {/* HERO */}
       <section className={styles.hero}>
-        <h1 className={styles.heroTitle}>{t.homeTitle}</h1>
-        <p className={styles.heroSubtitle}>{t.homeSubtitle}</p>
+        <motion.h1
+          className={styles.heroTitle}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          {t.homeTitle}
+        </motion.h1>
+
+        <motion.p
+          className={styles.heroSubtitle}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        >
+          {t.homeSubtitle}
+        </motion.p>
       </section>
 
       {/* CATEGORY GRID */}
