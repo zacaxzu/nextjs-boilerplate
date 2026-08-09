@@ -2,7 +2,7 @@ export const translations = {
   en: {
     homeTitle: "Capturing Moments That Matter",
     homeSubtitle:
-      "Professional photography for events, workshops, and portraits.",
+      "Professional photography for events, workshops and portraits.",
     networking: "Networking",
     workshops: "Workshops",
     portraits: "Portraits",
