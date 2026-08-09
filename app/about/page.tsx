@@ -27,7 +27,7 @@ export default function AboutPage() {
           <p>{t.aboutIntro}</p>
           <p>{t.aboutBody}</p>
 
-          <p className={styles.signature}>— Your Name</p>
+          <p className={styles.signature}>— Željka Baća</p>
         </motion.div>
 
         {/* IMAGE */}

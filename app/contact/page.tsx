@@ -44,7 +44,7 @@ export default function Contact() {
       <motion.section className={styles.hero} variants={itemVariants}>
         <h1 className={styles.title}>Let’s connect.</h1>
         <p className={styles.subtitle}>
-          For inquiries regarding fine art prints, image licensing, 
+          For inquiries regarding image licensing, event photography
           or project collaborations, please reach out via email.
         </p>
       </motion.section>

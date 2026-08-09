@@ -18,7 +18,7 @@ export const translations = {
     footerText: "Contact",
     aboutTitle: "About Me",
     aboutIntro: "I am a photographer focused on capturing authentic moments and real emotions.",
-    aboutBody: "My work spans events, workshops, portraits, and artistic projects. I believe photography is about storytelling, atmosphere, and connection."
+    aboutBody: "My work spans events, workshops, portraits and artistic projects. I believe photography is about storytelling, atmosphere, and connection."
   },
   hr: {
     homeTitle: "Bilježenje Trenutaka Koji Vrijede",
